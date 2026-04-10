@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+*.zip
+*.rar
+*.mp4
+*.pth
+*.pt
+*.ckpt
+
+hw1/data/
+hw1/augmented_100/
+hw2/videos_for_Ag_and_Image/
+hw3/data/
+hw3/outputs/
