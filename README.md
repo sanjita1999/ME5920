@@ -12,13 +12,16 @@ This repository contains my coursework for **ME5920: Data Analytics and Machine 
 ME5920/
 │
 ├── hw1/
-│   ├── part2.ipynb
-│   └── part3.ipynb
+│ ├── part2.ipynb
+│ └── part3.ipynb
 │
 ├── hw2/
-│   ├── code_hw2.ipynb
-│   ├── pca_reconstruction_outputs/
-│   └── videos_for_Ag_and_Image/
+│ ├── code_hw2.ipynb
+│ ├── pca_reconstruction_outputs/
+│ └── videos_for_Ag_and_Image/
+│
+├── hw3/
+│ └── ucf11_video_classification_assignment.ipynb
 │
 └── README.md
 ```
@@ -180,6 +183,115 @@ Results show:
 
 ---
 
+# Homework 3 - Video Classification using Deep Learning
+
+Homework 3 focuses on **video classification using deep learning models** on the UCF11 dataset. The goal is to compare different approaches for modeling spatial and temporal information in videos.
+
+All implementations are contained in:
+hw3/ucf11_video_classification_assignment.ipynb
+
+
+---
+
+## Methods Implemented
+
+### 1. Data Preparation
+
+- Processed **1600 videos across 11 action classes**  
+- Extracted:
+  - video paths  
+  - class labels  
+  - group IDs  
+- Created dataset splits:
+  - Training: 1020 videos  
+  - Validation: 173 videos  
+  - Test: 407 videos  
+- Used **folders 20–25 as the test split**
+
+---
+
+### 2. 2D CNN Classification (Frame-Based)
+
+- Extracted **random frames** from each video  
+- Resized frames to **112 × 112**  
+- Trained a custom **2D CNN model**
+
+Key experiment:
+- Evaluated **multiple random frames per video**
+- Averaged predictions across frames
+
+Results:
+- Best performance achieved with **5 frames per video**  
+- Test accuracy: **~27%**
+
+Insights:
+- Performs well for **visually distinctive actions**
+- Struggles with **motion-dependent classes**
+
+---
+
+### 3. 3D CNN Classification (Spatiotemporal Modeling)
+
+- Sampled **clips of consecutive frames**  
+- Trained a **3D CNN**
+
+Results:
+- Performance comparable to 2D CNN
+
+Insights:
+- Captures motion directly  
+- Computationally expensive  
+- Requires careful tuning  
+
+---
+
+### 4. CNN + LSTM (Temporal Modeling)
+
+- Used pretrained **ResNet18** for feature extraction  
+- Applied **LSTM** for temporal modeling  
+
+Results:
+- Achieved the **best performance among all models**
+
+Insights:
+- Captures temporal dependencies effectively  
+- More efficient than 3D CNN  
+
+---
+
+## Key Takeaways
+
+- **2D CNN:** Efficient but lacks temporal understanding  
+- **3D CNN:** Captures motion but computationally heavy  
+- **CNN + LSTM:** Best balance of performance and efficiency  
+
+Overall, the results highlight the importance of **temporal modeling in video classification tasks**.
+
+---
+
+# Tools Used
+
+- Python  
+- NumPy  
+- Pandas  
+- Matplotlib  
+- OpenCV  
+- Scikit-learn  
+- Torchvision  
+- Einops  
+- SciPy  
+
+---
+
+# Installation
+
+```bash
+pip install numpy pandas matplotlib opencv-python scikit-learn torchvision einops scipy
+
+
+
+---
+
 # Tools Used
 
 - Python
@@ -218,6 +330,10 @@ Homework 2 notebook:
 ```
 hw2/code_hw2.ipynb
 ```
+
+Homework 3 notebook:
+
+hw3/ucf11_video_classification_assignment.ipynb 
 
 Run all notebook cells sequentially to reproduce the analysis and visualizations.
 
