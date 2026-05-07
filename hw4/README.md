@@ -1,4 +1,4 @@
-# README — Task A: Intel Image Classification using CNNs
+# README - Task A: Intel Image Classification using CNNs
 
 ## Overview
 This task focuses on solving a multi-class image classification problem using the Intel Image Classification Dataset obtained from Kaggle. The dataset contains natural scene images grouped into six semantic categories: buildings, forest, glacier, mountain, sea, and street. The objective is to classify each image into its corresponding class using convolutional neural networks implemented in PyTorch and to analyze the effect of model complexity and hyperparameter tuning.
@@ -36,7 +36,7 @@ Further performance can be improved through stronger data augmentation, transfer
 
 ---
 
-# README — Task B: NanoGPT Transformer Performance Improvement
+# README - Task B: NanoGPT Transformer Performance Improvement
 
 ## Overview
 This task builds upon the provided NanoGPT transformer notebook and focuses on improving text generation performance using the tips-ML-Phenotype.txt dataset. The tokenized dataset was divided into a 90:10 train-validation split, and multiple structured modifications were applied to the baseline GPT implementation to improve language modeling capability.
